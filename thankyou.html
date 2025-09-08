@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - HomeEase Appliances</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 50px 40px;
+      text-align: center;
+      animation: slideIn 0.6s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .success-icon {
+      font-size: 4em;
+      color: #27ae60;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      color: #34495e;
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .contact-box {
+      background: #f8f9fa;
+      border-left: 4px solid #3498db;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 30px 0;
+      text-align: left;
+    }
+
+    .contact-box h3 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: #555;
+      margin: 8px 0;
+      font-size: 1.1em;
+    }
+
+    .back-home {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .back-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+    }
+
+    .footer-text {
+      color: #7f8c8d;
+      font-style: italic;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #ecf0f1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="success-icon">✅</div>
+    <h1>Thank You!</h1>
+    
+    <div class="message">
+      <p><strong>Your request has been submitted successfully.</strong></p>
+      <p>We appreciate your interest in HomeEase Appliances. Our expert team will review your requirements and contact you within 24 hours to discuss your needs and provide a personalized quote.</p>
+    </div>
+
+    <div class="contact-box">
+      <h3>Need Immediate Assistance?</h3>
+      <p><strong>Phone:</strong> +49 30 123 4567</p>
+      <p><strong>Email:</strong> info@homeease-appliances.com</p>
+      <p><strong>Business Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM CET</p>
+    </div>
+
+    <a href="#" class="back-home" onclick="window.history.back()">← Back to Home</a>
+
+    <div class="footer-text">
+      <p>HomeEase Appliances - Your Trusted Partner for Premium Home Appliances & Extended Warranty Services</p>
+    </div>
+  </div>
+</body>
+</html>

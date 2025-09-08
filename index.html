@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeEase Appliances - Get Started</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header p {
+      font-size: 1.1em;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-size: 3em;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-content {
+      padding: 40px;
+    }
+
+    .form-section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 1.3em;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ecf0f1;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+      color: #3498db;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 0.95em;
+    }
+
+    .required::after {
+      content: '*';
+      color: #e74c3c;
+      margin-left: 3px;
+    }
+
+    input[type="text"], 
+    input[type="email"], 
+    select, 
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #ecf0f1;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: #fff;
+    }
+
+    input[type="text"]:focus, 
+    input[type="email"]:focus, 
+    select:focus, 
+    textarea:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+      transform: translateY(-2px);
+    }
+
+    select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"></polyline></svg>');
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+      font-family: inherit;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .checkbox-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .checkbox-wrapper:hover {
+      background: #e9ecef;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+      cursor: pointer;
+      accent-color: #3498db;
+    }
+
+    .checkbox-wrapper label {
+      margin: 0;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .product-option {
+      border: 2px solid #ecf0f1;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: white;
+    }
+
+    .product-option:hover {
+      border-color: #3498db;
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .product-icon {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #3498db;
+    }
+
+    .submit-section {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px solid #ecf0f1;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      color: white;
+      padding: 18px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+      background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+    }
+
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+      padding: 20px 0;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 15px;
+    }
+
+    .feature i {
+      font-size: 2em;
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    .feature h4 {
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+
+    .feature p {
+      color: #7f8c8d;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 10px;
+      }
+      
+      .header {
+        padding: 30px 20px;
+      }
+      
+      .form-content {
+        padding: 30px 20px;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .header h1 {
+        font-size: 2em;
+      }
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #3498db;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-home logo-main"></i>
+          <i class="fas fa-cog logo-accent"></i>
+        </div>
+        <div class="logo-icon">
+          <i class="fas fa-plug logo-main"></i>
+        </div>
+      </div>
+      <h1>HomeEase Appliances</h1>
+      <p>Your Trusted Partner for Premium Home Appliances & Extended Warranty Services</p>
+    </div>
+
+    <div class="form-content">
+      <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DgK000008kSkh" method="POST" id="leadForm">
+
+        <!-- Hidden Salesforce values -->
+        <input type="hidden" name="oid" value="00DgK000008kSkh">
+        <input type="hidden" name="retURL" value="http://">
+        <input type="hidden" name="lead_source" value="Web">
+
+        <!-- Personal Information Section -->
+        <div class="form-section">
+          <div class="section-title">
+            <i class="fas fa-user"></i>
+            Personal Information
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="first_name" class="required">First Name</label>
+              <input id="first_name" maxlength="40" name="first_name" type="text" required>
+            </div>
+            <div class="form-group">
+              <label for="last_name" class="required">Last Name</label>
+              <input id="last_name" maxlength="80" name="last_name" type="text" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="required">Email Address</label>
+              <input id="email" maxlength="80" name="email" type="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input id="phone" maxlength="40" name="phone" type="text" placeholder="Enter your phone number">
+            </div>
+          </div>
+        </div>
+
+        <!-- Company & Location Section -->
+        <div class="form-section">
+          <div class="section-title">
+            <i class="fas fa-building"></i>
+            Company & Location Details
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="company">Company (Optional)</label>
+              <input id="company" maxlength="40" name="company" type="text" placeholder="Your company name">
+            </div>
+            <div class="form-group">
+              <label for="city">City/Area</label>
+              <select id="city" name="city">
+                <option value="">Select your area</option>
+                <option value="Berlin Central">Berlin Central</option>
+                <option value="Berlin South">Berlin South</option>
+                <option value="Berlin West">Berlin West</option>
+                <option value="Berlin North">Berlin North</option>
+                <option value="Berlin East">Berlin East</option>
+                <option value="Other">Other (Please specify in comments)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="country_code" class="required">Country</label>
+              <select id="country_code" name="country_code" required>
+                <option value="">Select your country</option>
+                <option value="DE">Germany</option>
+                <option value="IN">India</option>
+                <option value="US">United States</option>
+                <option value="GB">United Kingdom</option>
+                <option value="AU">Australia</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Interest Section -->
+        <div class="form-section">
+          <div class="section-title">
+            <i class="fas fa-shopping-cart"></i>
+            Product Interest
+          </div>
+          <div class="form-group full-width">
+            <label for="00NgK00001ctOPt">Which appliance interests you?</label>
+            <select id="00NgK00001ctOPt" name="00NgK00001ctOPt">
+              <option value="">Select an appliance</option>
+              <option value="Refrigerator">🧊 Premium Refrigerator</option>
+              <option value="Washing Machine">👕 Smart Washing Machine</option>
+              <option value="Dishwasher">🍽️ Efficient Dishwasher</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Warranty Section -->
+        <div class="form-section">
+          <div class="section-title">
+            <i class="fas fa-shield-alt"></i>
+            Extended Warranty Plan
+          </div>
+          <div class="checkbox-group">
+            <div class="checkbox-wrapper">
+              <input id="00NgK00001csCp4" name="00NgK00001csCp4" type="checkbox" value="1">
+              <label for="00NgK00001csCp4">
+                <strong>Yes, I'm interested in the 3-Year Extended Warranty Plan</strong><br>
+                <small>Includes quarterly maintenance, in-home inspections, and priority support</small>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Details Section -->
+        <div class="form-section">
+          <div class="section-title">
+            <i class="fas fa-comment"></i>
+            Additional Information
+          </div>
+          <div class="form-group full-width">
+            <label for="description">Tell us more about your requirements</label>
+            <textarea name="description" id="description" placeholder="Any specific requirements, questions, or details you'd like to share with us..."></textarea>
+          </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features">
+          <div class="feature">
+            <i class="fas fa-tools"></i>
+            <h4>Expert Service</h4>
+            <p>Certified technicians for all maintenance</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-calendar-check"></i>
+            <h4>Scheduled Visits</h4>
+            <p>Quarterly inspections included</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-headset"></i>
+            <h4>24/7 Support</h4>
+            <p>Round-the-clock customer assistance</p>
+          </div>
+        </div>
+
+        <!-- Submit Section -->
+        <div class="submit-section">
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i>
+            Get Started with HomeEase
+          </button>
+          <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Processing your request...</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Enhanced form submission with loading state
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      const submitBtn = document.querySelector('.submit-btn');
+      const loading = document.getElementById('loading');
+      
+      // Validate required fields before submission
+      const requiredFields = document.querySelectorAll('[required]');
+      let allValid = true;
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#e74c3c';
+          allValid = false;
+        } else {
+          field.style.borderColor = '#27ae60';
+        }
+      });
+      
+      if (!allValid) {
+        e.preventDefault();
+        alert('Please fill in all required fields.');
+        return;
+      }
+      
+      submitBtn.style.display = 'none';
+      loading.style.display = 'block';
+      
+      // Debug: Log form data before submission
+      console.log('Form submitting with data:', new FormData(this));
+    });
+
+    // Dynamic state options based on country selection
+    const countrySelect = document.getElementById('country_code');
+    const stateSelect = document.getElementById('state_code');
+    
+    const stateOptions = {
+      'DE': [
+        {value: 'BE', text: 'Berlin'},
+        {value: 'BY', text: 'Bavaria'},
+        {value: 'NW', text: 'North Rhine-Westphalia'}
+      ],
+      'IN': [
+        {value: 'MH', text: 'Maharashtra'},
+        {value: 'DL', text: 'Delhi'},
+        {value: 'KA', text: 'Karnataka'}
+      ],
+      'US': [
+        {value: 'CA', text: 'California'},
+        {value: 'NY', text: 'New York'},
+        {value: 'TX', text: 'Texas'}
+      ],
+      'GB': [
+        {value: 'ENG', text: 'England'},
+        {value: 'SCT', text: 'Scotland'},
+        {value: 'WLS', text: 'Wales'}
+      ],
+      'AU': [
+        {value: 'NSW', text: 'New South Wales'},
+        {value: 'VIC', text: 'Victoria'},
+        {value: 'QLD', text: 'Queensland'}
+      ]
+    };
+
+    countrySelect.addEventListener('change', function() {
+      const selectedCountry = this.value;
+      stateSelect.innerHTML = '<option value="">Select state/province</option>';
+      
+      if (stateOptions[selectedCountry]) {
+        stateOptions[selectedCountry].forEach(state => {
+          const option = document.createElement('option');
+          option.value = state.value;
+          option.textContent = state.text;
+          stateSelect.appendChild(option);
+        });
+        
+        // Auto-select Berlin for Germany if city contains Berlin
+        if (selectedCountry === 'DE') {
+          stateSelect.value = 'BE';
+        }
+      }
+    });
+    
+    // Auto-update state when Berlin cities are selected
+    const citySelect = document.getElementById('city');
+    citySelect.addEventListener('change', function() {
+      if (this.value.includes('Berlin') && countrySelect.value === 'DE') {
+        stateSelect.value = 'BE';
+      }
+    });
+
+    // Enhanced form validation and user experience
+    const inputs = document.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (this.hasAttribute('required') && !this.value.trim()) {
+          this.style.borderColor = '#e74c3c';
+        } else {
+          this.style.borderColor = '#ecf0f1';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
